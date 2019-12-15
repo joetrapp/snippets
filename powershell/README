@@ -1,1 +1,7 @@
-## This is a comment?
+## ForEach loop from CSV
+
+$CSV = Import-CSV -Path .\filename.csv -Delimiter "," -Header HeaderName
+
+ForEach ($line in $CSV) {
+
+}
