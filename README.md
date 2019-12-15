@@ -1,2 +1,2 @@
 # Snippets
-Code snippets
+Code snippets for various admin languages
