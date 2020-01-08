@@ -10,3 +10,7 @@ Get-CimInstance -ClassName win32_operatingsystem | Select-Object LastBootUpTime
 
 #### Get directory size
 (Get-ChildItem c:\Downloads -Recurse -File | Measure-Object Length -s).Sum /1GB
+
+#### Install Chrome via package providers
+Install-PackageProvider chocolateyget -Force
+Install-Package googlechrome -Force
