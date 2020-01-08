@@ -20,3 +20,6 @@ Get-ADGroup -Filter 'Name -like "*Notification*"' | Select-Object Name | Sort-Ob
 
 #### Get disks + size for remote comp
 Get-WmiObject -ComputerName $CompName -Class Win32_logicaldisk | Format-Table -Property DeviceId,VolumeName, @{L='FreeSpaceGB';E={"{0:N2}" -f ($_.FreeSpace /1GB)}}, @{L="Capacity";E={"{0:N2}" -f ($_.Size/1GB)}}
+
+#### Add-member to variable
+$Variable | Add-Member -Name $NameOfNewMember -MemberType "NoteProperty" -Value $OtherVariableValue
