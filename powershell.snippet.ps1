@@ -14,3 +14,9 @@ Get-CimInstance -ClassName win32_operatingsystem | Select-Object LastBootUpTime
 #### Install Chrome via package providers
 Install-PackageProvider chocolateyget -Force
 Install-Package googlechrome -Force
+
+#### Get all groups with wildcard name
+Get-ADGroup -Filter 'Name -like "*Notification*"' | Select-Object Name | Sort-Object Name
+
+#### Get disks + size for remote comp
+Get-WmiObject -ComputerName $CompName -Class Win32_logicaldisk | Format-Table -Property DeviceId,VolumeName, @{L='FreeSpaceGB';E={"{0:N2}" -f ($_.FreeSpace /1GB)}}, @{L="Capacity";E={"{0:N2}" -f ($_.Size/1GB)}}
