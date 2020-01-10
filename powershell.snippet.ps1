@@ -23,3 +23,6 @@ Get-WmiObject -ComputerName $CompName -Class Win32_logicaldisk | Format-Table -P
 
 #### Add-member to variable
 $Variable | Add-Member -Name $NameOfNewMember -MemberType "NoteProperty" -Value $OtherVariableValue
+
+#### Write to SQL table
+Write-SQLTableData -InputData $SQLData -DatabaseName $DatabaseName -SchemaName "dbo" -TableName $TableName -Force -ErrorAction Stop
