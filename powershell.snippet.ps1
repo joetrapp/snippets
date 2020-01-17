@@ -26,3 +26,9 @@ $Variable | Add-Member -Name $NameOfNewMember -MemberType "NoteProperty" -Value 
 
 #### Write to SQL table
 Write-SQLTableData -InputData $SQLData -DatabaseName $DatabaseName -SchemaName "dbo" -TableName $TableName -Force -ErrorAction Stop
+
+#### Use variables in Invoke-SQL command
+Invoke-SQLCmd -Server $ServerName -Database $DBName -Query "
+INSERT
+INTO dbo.Table(ID,Name)
+VALUES('$ComputerID','$ComputerName')"
