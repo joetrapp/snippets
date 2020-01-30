@@ -32,3 +32,6 @@ Invoke-SQLCmd -Server $ServerName -Database $DBName -Query "
 INSERT
 INTO dbo.Table(ID,Name)
 VALUES('$ComputerID','$ComputerName')"
+
+#### New session with PS
+$Session0 = New-PSSession -ComputerName $CompName
